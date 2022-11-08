@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 import Service from '../Service';
 
 const Banner = () => {
@@ -35,6 +36,7 @@ const Banner = () => {
                 </div>
             </div>
             <Service></Service>
+
         </div>
     );
 };
