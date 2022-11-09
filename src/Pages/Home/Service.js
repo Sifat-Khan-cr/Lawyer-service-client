@@ -23,7 +23,9 @@ const Service = () => {
                 </div>
             </div>
             <div className=' my-5 mx-auto w-3/12'>
-                <button onClick={() => setLim(0)} className="btn btn-success w-full">Show All</button>
+                {
+                    lim === 3 && <button onClick={() => setLim(0)} className="btn btn-success w-full">Show All</button>
+                }
             </div>
 
         </div>
