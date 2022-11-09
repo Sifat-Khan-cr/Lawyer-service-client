@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, googleHandler } = useContext(AuthContext);
     const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
@@ -52,6 +52,8 @@ const SignUp = () => {
                         </div>
                     </form>
                     <p className='text-center'>Already have an account? <Link className='text-orange-600 font-bold' to="/login">Login</Link> </p>
+                    <button onClick={googleHandler} className="btn btn-secondary w-4/5 mx-auto mt-5">Google</button>
+
                 </div>
             </div>
         </div>
