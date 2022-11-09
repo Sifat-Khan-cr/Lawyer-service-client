@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import Spinner from '../Shared/Spinner';
 import ServiceCard from './Banner/ServiceCard';
 
 const Service = () => {
+    const { loading } = useContext(AuthContext);
     const [services, setServices] = useState([]);
     const [lim, setLim] = useState(3);
     // console.log(lim);
@@ -13,6 +16,7 @@ const Service = () => {
     }, [lim]);
     return (
         <div>
+            {loading && <Spinner></Spinner>}
             <div className='flex justify-center'>
                 <div className='grid md:grid-cols-2 lg:grid-cols-3 my-5 gap-3'>
                     {
@@ -27,6 +31,8 @@ const Service = () => {
                     lim === 3 && <button onClick={() => setLim(0)} className="btn btn-success w-full">Show All</button>
                 }
             </div>
+
+
 
         </div>
     );
