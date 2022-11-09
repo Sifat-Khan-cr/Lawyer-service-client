@@ -12,7 +12,7 @@ const AddReview = () => {
         const email = user?.email || form.email.value;
         const review = form.review.value;
         const photo = user?.photoURL;
-        form.reset();
+        // form.reset();
 
         const userReview = {
             userName: name,
@@ -21,6 +21,25 @@ const AddReview = () => {
             photo: photo
         }
         console.log(userReview);
+
+
+        fetch('http://localhost:5000/review', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(userReview)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    alert('Review stored successfully')
+                    form.reset();
+
+                }
+            })
+            .catch(er => console.error(er));
     };
     return (
         <div className='w-6/12 mx-auto'>
