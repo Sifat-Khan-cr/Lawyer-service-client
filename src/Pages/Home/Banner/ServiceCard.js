@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ServiceCard = ({ service }) => {
     return (
@@ -10,7 +11,7 @@ const ServiceCard = ({ service }) => {
                 <h2 className="card-title">{service.name}</h2>
                 <p>{service.info.slice(0, 50) + " ..."}</p>
                 <div className="card-actions">
-                    <button className="btn btn-primary">Details</button>
+                    <Link to={`/services/${service._id}`}><button className="btn btn-primary">Details</button></Link>
                 </div>
             </div>
         </div>
