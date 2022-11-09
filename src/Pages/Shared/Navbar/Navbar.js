@@ -18,7 +18,6 @@ const Navbar = () => {
             <div className="flex-none">
                 <ul className="menu menu-horizontal p-0">
                     <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
-                    <li className='font-semibold'><Link>Contact</Link></li>
                     <li>  {
                         user?.email ?
                             <>
@@ -29,7 +28,7 @@ const Navbar = () => {
                                 </li>
                                 <span>{user?.displayName}</span>
                                 <div className="avatar">
-                                    <div className="w-16 mask mask-hexagon">
+                                    <div className="w-14 mask mask-hexagon">
                                         <img src={user?.photoURL} alt="user" />
                                     </div>
                                 </div>
