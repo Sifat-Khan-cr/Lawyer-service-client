@@ -42,7 +42,7 @@ const AddReview = () => {
             .catch(er => console.error(er));
     };
     return (
-        <div className='w-6/12 mx-auto'>
+        <div className='w-6/12 mx-auto my-10'>
 
             <form onSubmit={handleSubmit}>
                 <div className="mb-6">

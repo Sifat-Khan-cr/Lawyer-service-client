@@ -3,10 +3,12 @@ import Main from "../Layout/Main";
 import Banner from "../Pages/Home/Banner/Banner";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import MyReview from "../Pages/MyReview/MyReview";
 // import Login from "../Pages/Login/Login";
 import ServiceDeatails from "../Pages/ServiceDetails/ServiceDeatails";
 import Blog from "../Pages/Shared/Blog/Blog";
 import SignUp from "../Pages/SignUp/SignUp";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +22,10 @@ export const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/myreview',
+                element: <PrivateRoute><MyReview></MyReview></PrivateRoute>
             },
             {
                 path: '/login',

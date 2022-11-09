@@ -18,11 +18,13 @@ const Navbar = () => {
             <div className="flex-none">
                 <ul className="menu menu-horizontal p-0">
                     <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
+                    <li className='font-semibold'><Link to='/myreview'>My Reviews</Link></li>
+
                     <li>  {
                         user?.email ?
                             <>
                                 <li className='font-semibold'><Link to='/'>Add Service</Link></li>
-                                <li className='font-semibold'><Link to='/'>My Reviews</Link></li>
+                                {/* <li className='font-semibold'><Link to='/myreview'>My Reviews</Link></li> */}
                                 <li className='font-semibold'>
                                     <button onClick={handleLogOut} className='btn-ghost'>Sign Out</button>
                                 </li>
