@@ -4,7 +4,7 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const Login = () => {
 
-    const { login } = useContext(AuthContext);
+    const { googleHandler, login } = useContext(AuthContext);
 
     const handleLogin = event => {
         event.preventDefault();
@@ -48,8 +48,10 @@ const Login = () => {
                             <input className="btn btn-primary" type="submit" value="Login" />
                         </div>
                     </form>
-                    <p className='text-center'>New to Genius Car <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
+                    <p className='text-center'>New to Sifat Lawyer <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
+                    <button onClick={googleHandler} className="btn btn-secondary w-4/5 mx-auto mt-5">Google</button>
                 </div>
+
             </div>
         </div>
     );

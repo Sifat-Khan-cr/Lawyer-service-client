@@ -1,55 +1,65 @@
 import React from 'react';
 import { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import app from '../../Firebase/Firebase.config';
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useState } from 'react';
 import { useEffect } from 'react';
+import App from '../../Firebase/Firebase.config'
 
 export const AuthContext = createContext();
-const auth = getAuth(app);
+
+
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const googleAuthProvider = new GoogleAuthProvider();
+    const auth = getAuth(App);
+
+
+    const googleHandler = () => {
+        setLoading(true)
+        signInWithPopup(auth, googleAuthProvider)
+            .then(result => {
+                // const user = result.user;
+                // console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
+    const logOut = () => {
+        setLoading(true)
+        return signOut(auth);
+    }
 
     const createUser = (email, password) => {
-        setLoading(true);
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }
+
 
     const login = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
-
-    const logOut = () => {
-        // localStorage.removeItem('genius-token');
-        return signOut(auth);
+    const updataUserProfile = (profile) => {
+        return updateProfile(auth.currentUser, profile)
     }
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            console.log(currentUser);
+        const unsubcribe = onAuthStateChanged(auth, (currentUser) => {
+            // console.log("user state ", currentUser);
             setUser(currentUser);
             setLoading(false);
         });
-
         return () => {
-            return unsubscribe();
+            unsubcribe();
         }
     }, [])
 
-    const authInfo = {
-        user,
-        loading,
-        createUser,
-        login,
-        logOut
-    }
-
+    const authInfo = { user, loading, googleHandler, logOut, createUser, login, updataUserProfile };
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
+
         </AuthContext.Provider>
     );
 };

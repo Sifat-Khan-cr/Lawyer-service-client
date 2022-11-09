@@ -12,7 +12,8 @@ const Navbar = () => {
     return (
         <div className="navbar bg-primary text-primary-content">
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">Lawyer</a>
+                {/* <a className="btn btn-ghost normal-case text-xl">Lawyer</a> */}
+                <Link to="/">Lawyer</Link>
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal p-0">
@@ -21,7 +22,6 @@ const Navbar = () => {
                     <li>  {
                         user?.email ?
                             <>
-                                <li className='font-semibold'><Link to='/orders'>Orders</Link></li>
                                 <li className='font-semibold'>
                                     <button onClick={handleLogOut} className='btn-ghost'>Sign Out</button>
                                 </li>
