@@ -23,7 +23,7 @@ const Navbar = () => {
                     <li>  {
                         user?.email ?
                             <>
-                                <li className='font-semibold'><Link to='/'>Add Service</Link></li>
+                                <li className='font-semibold'><Link to='/addservice'>Add Service</Link></li>
                                 {/* <li className='font-semibold'><Link to='/myreview'>My Reviews</Link></li> */}
                                 <li className='font-semibold'>
                                     <button onClick={handleLogOut} className='btn-ghost'>Sign Out</button>
