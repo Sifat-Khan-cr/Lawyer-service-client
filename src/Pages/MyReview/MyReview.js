@@ -13,7 +13,7 @@ const MyReview = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to cancel this order');
         if (proceed) {
-            fetch(`http://localhost:5000/review/${id}`, {
+            fetch(`https://lawyer-ph-assaignment-11-server.vercel.app/review/${id}`, {
                 method: 'DELETE',
                 headers: {
                     // 'content-type': 'application/json',
@@ -32,7 +32,7 @@ const MyReview = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user.email}`)
+        fetch(`https://lawyer-ph-assaignment-11-server.vercel.app/reviews?email=${user.email}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, []);

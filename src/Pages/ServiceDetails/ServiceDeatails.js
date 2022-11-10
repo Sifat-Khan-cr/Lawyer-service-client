@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
+import PrivateRoute from '../../Router/PrivateRoute';
 import AddReview from '../AddReview/AddReview';
 import Reviews from '../Reviews/Reviews';
 import SingleServiceDetails from './SingleServiceDetails';
 
 const ServiceDeatails = () => {
+    const { user } = useContext(AuthContext);
+    // console.log(user.uid)
     const details = useLoaderData();
     useTitle('Service')
     return (
         <div>
             <SingleServiceDetails details={details}></SingleServiceDetails>
             <Reviews></Reviews>
-            <AddReview></AddReview>
+            {/* <PrivateRoute><AddReview></AddReview></PrivateRoute> */}
+            {
+                user ? <AddReview></AddReview> : <h1 className='text-6xl text-center font-semibold my-10'>Login first to give a review</h1>
+            }
+
         </div>
     );
 };

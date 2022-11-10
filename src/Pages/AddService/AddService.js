@@ -22,7 +22,7 @@ const AddService = () => {
         console.log(service);
 
 
-        fetch('http://localhost:5000/service', {
+        fetch('https://lawyer-ph-assaignment-11-server.vercel.app/service', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

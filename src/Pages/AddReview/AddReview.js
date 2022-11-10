@@ -23,7 +23,7 @@ const AddReview = () => {
         console.log(userReview);
 
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://lawyer-ph-assaignment-11-server.vercel.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

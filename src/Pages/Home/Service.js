@@ -10,7 +10,7 @@ const Service = () => {
     // console.log(lim);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services?lim=${lim}`)
+        fetch(`https://lawyer-ph-assaignment-11-server.vercel.app/services?lim=${lim}`)
             .then(res => res.json())
             .then(data => setServices(data))
     }, [lim]);
