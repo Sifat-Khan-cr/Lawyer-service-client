@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 import PrivateRoute from '../../Router/PrivateRoute';
@@ -18,7 +18,7 @@ const ServiceDeatails = () => {
             <Reviews></Reviews>
             {/* <PrivateRoute><AddReview></AddReview></PrivateRoute> */}
             {
-                user ? <AddReview></AddReview> : <h1 className='text-6xl text-center font-semibold my-10'>Login first to give a review</h1>
+                user ? <AddReview></AddReview> : <h1 className='text-6xl text-center font-semibold my-10'><Link to="/login">Login first to give a review</Link></h1>
             }
 
         </div>
