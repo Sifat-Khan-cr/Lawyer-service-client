@@ -2,10 +2,12 @@ import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 import Spinner from '../Shared/Spinner';
 
 const SignUp = () => {
     const { createUser, googleHandler, loading } = useContext(AuthContext);
+    useTitle('sign-up');
     const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;

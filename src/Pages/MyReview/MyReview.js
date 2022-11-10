@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 import SingleReview from '../SingleReview/SingleReview';
 
 
 const MyReview = () => {
     const [reviews, setReviews] = useState([]);
     const { user } = useContext(AuthContext);
+    useTitle('My-reviews')
 
 
     const handleDelete = id => {

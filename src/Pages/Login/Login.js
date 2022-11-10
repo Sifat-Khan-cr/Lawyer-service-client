@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 import Spinner from '../Shared/Spinner';
 
 const Login = () => {
+    useTitle('Login');
+
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
@@ -31,6 +34,7 @@ const Login = () => {
 
     return (
         <div>
+
             {loading && <Spinner></Spinner>}
             <div className="hero w-full my-20">
                 <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
