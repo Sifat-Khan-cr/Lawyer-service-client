@@ -29,7 +29,7 @@ const AddService = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.acknowledged) {
                     alert('service stored successfully')
                     form.reset();
